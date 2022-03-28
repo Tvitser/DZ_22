@@ -1,13 +1,9 @@
+# coding=utf-8
 from abc import ABC, abstractmethod
 
 
-def call_logger(method):
-    def logger(*args, **kwargs):
-        print(f'{args[0].__class__.__name__} {method.__name__}')
-    return logger
-
-
 class Transport(ABC):
+
     @abstractmethod
     def start_engine(self):
         pass
@@ -26,65 +22,54 @@ class Transport(ABC):
 
 
 class Boat(Transport):
-    @call_logger
     def start_engine(self):
-        pass
+        print('Катер громко затарахтел')
 
-    @call_logger
     def stop_engine(self):
-        pass
+        print('Двигатель катера чихнул напоследок и заглох')
 
-    @call_logger
     def move(self):
-        pass
+        print('Катер быстро набирает скорость')
 
-    @call_logger
     def stop(self):
-        pass
+        print('Катер остановился')
 
 
 class Car(Transport):
-    @call_logger
     def start_engine(self):
-        pass
+        print('Машина заурчала двигателем')
 
-    @call_logger
     def stop_engine(self):
-        pass
+        print('Машина стоит с заглушенным двигателем')
 
-    @call_logger
     def move(self):
-        pass
+        print('Машина едет к цели назначения')
 
-    @call_logger
     def stop(self):
-        pass
+        print('Машина остановилась')
 
 
 class Electroscooter(Transport):
-    @call_logger
     def start_engine(self):
-        pass
+        print('Мигнул светодиодом')
 
-    @call_logger
     def stop_engine(self):
-        pass
+        print('Мигнул светодиодом дважды')
 
-    @call_logger
     def move(self):
-        pass
+        print('Прохожие в ужасе разбегаются от очередного камикадзе')
 
-    @call_logger
     def stop(self):
-        pass
+        print('Торможение об стену прошло успешно')
 
 
 class Person:
+
     def use_transport(self, transport: Transport):
         transport.start_engine()
         transport.move()
         transport.stop()
-        transport.start_engine()
+        transport.stop_engine()
 
 
 if __name__ == '__main__':

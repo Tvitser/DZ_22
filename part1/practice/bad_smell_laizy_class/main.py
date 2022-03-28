@@ -1,7 +1,3 @@
-# Один из классов не делает совсем ничего,
-# просто переадресует вызовы к другому классу.
-# Удалите этот класс и перенаправьте вызовы напрямую.
-
 class Unit:
     def __init__(self):
         self.x = 0
@@ -21,9 +17,8 @@ class Field:
     def set_unit(self, x, y, unit: Unit):
         pass
 
-
 class Main:
     def __init__(self):
         self.field = Field()
         self.unit = Unit()
-        self.unit.move(self.field)
+        self.unit.move(field=self.field)
